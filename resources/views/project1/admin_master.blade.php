@@ -27,10 +27,13 @@
 		#modal1{
 			width: 100%;
 		}
+
+
 	</style>
+	@yield('style')
 	</head>
 	<body>
-		<nav class="navbar navbar-default" role="navigation">
+		<nav class=" navbar-inverse" role="navigation">
 			<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
@@ -64,5 +67,6 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
  		<script src="Hello World"></script>
+	</script>
 	</body>
 </html>

@@ -161,33 +161,36 @@
 //     //
 // });
 
-Route::group(['middleware' => ['web']], function () {
-	Route::get('/student/index','StudentController@index');
-	Route::post('/student/add','StudentController@add');
-	Route::get('/student/addStudent','StudentController@addForm');
-	Route::get('/student', 'StudentController@page');
-	Route::get('/student/delete/{id}', 'StudentController@delete');
-	Route::get('/student/edit/{id}', 'StudentController@edit');
-	Route::post('/student/update/{id}', 'StudentController@update');
+// Route::group(['middleware' => ['web']], function () {
+// 	Route::get('/student/index','StudentController@index');
+// 	Route::post('/student/add','StudentController@add');
+// 	Route::get('/student/addStudent','StudentController@addForm');
+// 	Route::get('/student', 'StudentController@page');
+// 	Route::get('/student/delete/{id}', 'StudentController@delete');
+// 	Route::get('/student/edit/{id}', 'StudentController@edit');
+// 	Route::post('/student/update/{id}', 'StudentController@update');
 
 
 
-    //
-});
+//     //
+// });
 
-Route::group(['middleware' => ['web']], function () {
-	Route::get('/thecodebook','ProjectController@index');
-	Route::get('/thecodebook/login','ProjectController@login');
-	Route::post('/thecodebook/login','ProjectController@login2');
-	Route::get('/admin/code','ProjectController@admin');
-	Route::get('/code', 'ProjectController@page');
-	Route::get('/code/delete/{id}', 'ProjectController@delete');
-	Route::get('/code/edit/{id}', 'ProjectController@edit');
-	Route::post('/code/update/{id}', 'ProjectController@update');
-	Route::get('/code/create','ProjectController@addForm');
-	Route::post('/code/add','ProjectController@add');
-    //
-});
+// Route::group(['middleware' => ['web']], function () {
+// 	Route::get('/thecodebook','ProjectController@index');
+// 	Route::get('/thecodebook/login','ProjectController@login');
+// 	Route::post('/thecodebook/login','ProjectController@login2');
+// 	Route::get('/admin/code','ProjectController@admin');
+// 	Route::get('/code', 'ProjectController@page');
+// 	Route::get('/code/delete/{id}', 'ProjectController@delete');
+// 	Route::get('/code/edit/{id}', 'ProjectController@edit');
+// 	Route::post('/code/update/{id}', 'ProjectController@update');
+// 	Route::get('/code/create','ProjectController@addForm');
+// 	Route::post('/code/add','ProjectController@add');
+//     //
+// });
+
+Route::resource('boards','Boards\\BoardsController');
+
 
 
 
@@ -223,9 +226,12 @@ Route::group(['middleware' => ['web']], function () {
 // 	});
 //     //
 // });
-
-Route::group(['middleware' => 'web'], function () {
-    Route::auth();
+Route::get('/',  function() { return redirect('/home'); } );
+	Route::group(['middleware' => 'web'], function () {
+   	Route::auth();
 
     Route::get('/home', 'HomeController@index');
+    Route::resource('thecodebook/admin','codebook\\ProjectController');
+
+    Route::get('thecodebook','codebook\\GeneralUserController@index');
 });

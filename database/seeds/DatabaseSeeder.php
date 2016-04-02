@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\library;
+use App\Codedata;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -12,53 +12,35 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UserTableSeeder::class);
-        $this->call(LibraryTableSeeder::class);
+        //$this->call(LibraryTableSeeder::class);
+        $this->call(CodedataTableSeeder::class);
     }
 }
 
-class StudentTableSeeder  extends Seeder {
-    public function run() {
-        DB::table('students')->delete();
+// class CodeDataTableSeeder  extends Seeder {
+//     public function run() {
+//         DB::table('codedatas')->delete();
 
-        $students = [
-            [  "name" => 'Warodom',
-                "surname" => 'Werapun',  ],
-            [   "name" => 'John',
-                "surname" => 'Denver',
-            ]
-        ];
+//         $codedatas = [
+//             [  "title" => 'hello world',
+//                 "content" => 'public class HelloWorld {
 
-        foreach ($students as $s ) {
-            Student::create($s);     
-        } 
+//     public static void main(String[] args) {
+//         System.out.println("Hello, World");
+//     }
 
-    }
+// }',
+//                 "type" => 'java' ,
+//                 "evaluation" => 5.0 ,
+//                 "user_id" => 1 , ]
+//         ];
 
-}
-class CodeDataTableSeeder  extends Seeder {
-    public function run() {
-        DB::table('codedatas')->delete();
+//         foreach ($codedatas as $s ) {
+//             Codedata::create($s);     
+//         } 
 
-        $codedatas = [
-            [  "title" => 'hello world',
-                "content" => 'public class HelloWorld {
-
-    public static void main(String[] args) {
-        System.out.println("Hello, World");
-    }
-
-}',
-                "type" => 'java' ,
-                "evaluation" => 5.0 ,
-                "user_id" => 1 , ]
-        ];
-
-        foreach ($codedatas as $s ) {
-            Codedata::create($s);     
-        } 
-
-    }
-}
+//     }
+// }
 
 class LibraryTableSeeder  extends Seeder {
     public function run() {

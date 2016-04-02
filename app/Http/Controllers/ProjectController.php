@@ -13,10 +13,9 @@ class ProjectController extends Controller
 {
     //
     public function index() {
-    	
-    	return view('project1/index');
-    }
-
+    	$codedata = Codedata::all();
+    	return $codedata;
+}
     public function login2() {
     	$username = Input::get('username');
     	$password = Input::get('password');

@@ -19,3 +19,14 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Codedata::class, function (Faker\Generator $faker) {
+    return [
+        "title" => $faker->lexify('Hello ???'),
+        "content" => $faker->text,
+        "type" =>  $faker->randomElement($array = array ('java','python','c#','vb')) ,
+        "evaluation" => $faker->numberBetween($min = 1, $max = 5) ,
+        "user_id" => $faker->randomDigitNotNull,
+
+    ];
+});

@@ -8,7 +8,7 @@
 				<h3 class="panel-title">Add code</h3>
 		  </div>
 		  <div class="panel-body">
-				<form role="form" action="add" method="post">
+				<form role="form" action="../admin" method="post">
 					<div class="form-group col-md-8">
 						<label >Title:</label>
 						<input type="text" class="form-control" name="title" >
