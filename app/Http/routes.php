@@ -226,7 +226,9 @@ Route::resource('boards','Boards\\BoardsController');
 // 	});
 //     //
 // });
-Route::get('/',  function() { return redirect('/home'); } );
+	Route::get('/',  function() { return redirect('/home'); } );
+	Route::get('/',  function() { return redirect('/home'); } );
+
 	Route::group(['middleware' => 'web'], function () {
    	Route::auth();
 
@@ -234,4 +236,8 @@ Route::get('/',  function() { return redirect('/home'); } );
     Route::resource('thecodebook/admin','codebook\\ProjectController');
 
     Route::get('thecodebook','codebook\\GeneralUserController@index');
+    Route::get('thecodebook/java','codebook\\GeneralUserController@java');
+    Route::get('thecodebook/python','codebook\\GeneralUserController@python');
+    Route::get('thecodebook/c-sharp','codebook\\GeneralUserController@cshrp');
+    Route::get('thecodebook/vb','codebook\\GeneralUserController@vb');
 });

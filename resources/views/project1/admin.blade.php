@@ -17,9 +17,9 @@
 	<table class="table table-condensed table-hover">
 		<thead>
 			<tr>
-				<td class="col-md-8">Title</td>
-				<td class="col-md-2">Language</td>
-				<td class="col-md-2">Option</td>
+				<td class="col-md-8"> <span class="glyphicon glyphicon-book"> Title</td>
+				<td class="col-md-2"> <span class="glyphicon glyphicon-tags"> Language</td>
+				<td class="col-md-2"> <span class="glyphicon glyphicon-cog"> Option</td>
 			</tr>
 		</thead>
 
@@ -47,11 +47,11 @@
 				</div>
 				<td >{{ $s->type}}</td>
 				<td >
-					<a href="admin/{{$s->id}}/edit"> Edit </a> |
+					<a href="admin/{{$s->id}}/edit"> <span class="glyphicon glyphicon-edit"></span></a> |
 					{!! Form::open(['method'=>'DELETE',
 									'url' => ['thecodebook/admin', $s->id],
 									'style' => 'display:inline' ]) !!}
-					<a href="#" onclick="this.parentNode.submit()">Delete</a>
+					<a href="#" onclick="this.parentNode.submit()"> <span class="glyphicon glyphicon-trash"></span></a>
 					{!! Form::close() !!}
 				</td>
 			</tr>
@@ -62,7 +62,7 @@
 	</table>
 			  {!! $codedatas->render() !!}
 	<hr>
-		<a href="admin/create"> Create </a>
+		<a href="admin/create"> <span class="glyphicon glyphicon-pencil"> Create </a>
 	<hr>
 	<script src="{{ URL::asset('src/ace.js') }}"></script>
 <!-- load ace static_highlight extension -->

@@ -74,7 +74,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<p class="navbar-brand">THE CODE BOOK</p>
+					<a class="navbar-brand" href="{{ url('thecodebook') }}">THE CODE BOOK</a>
 				</div>
 		
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -83,16 +83,17 @@
 						
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li> <span class="filetypes filetypes-jar"></span><a href="#">Java</a></li>
-						<li><a href="#">Python</a></li>
-						<li><a href="#">C#</a></li>
-						<li><a href="#">VB</a></li>
-						<li><a href="#">Shared Code</a></li>
+						<li><a  href="{{ url('thecodebook/java') }}">Java</a></li>
+						<li><a  href="{{ url('thecodebook/python') }}">Python</a></li>
+						<li><a  href="{{ url('thecodebook/c-sharp') }}">C#</a></li>
+						<li><a  href="{{ url('thecodebook/vb') }}">VB</a></li>
+						<li class="hidden-sm"><a  href="#">Shared Code</a></li>
 						<li class="dropdown">
         					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 	        					<span class="glyphicon glyphicon-menu-hamburger"></span>
 							</a>
 						        <ul class="dropdown-menu">
+						        	<li class="hidden-md hidden-lg hidden-xs"><a  href="#">Shared Code</a></li>
 						          	<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       								<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
 						        </ul>
@@ -105,11 +106,11 @@
 		<div class="container">
 			@yield('content')
 		</div>
-		<footer class="container-fluid bg-1 " style="border-style: solid; border-width: 1px;border-color: #e7e7e7;">
+		<div class="footer container other-color">
 			<div class="container">
-				hi
+				<p class="navbar-brand">By Eiji</p>
 			</div>
-		</footer>
+		</div>
 		<script src="//code.jquery.com/jquery.js"></script>
 		<!-- Bootstrap JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>

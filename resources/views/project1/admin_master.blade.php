@@ -43,7 +43,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<p class="navbar-brand">THE CODE BOOK</p>
+					<p class="navbar-brand">THE CODE BOOK ADMIN</p>
 				</div>
 		
 				<!-- Collect the nav links, forms, and other content for toggling -->
