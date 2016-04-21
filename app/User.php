@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','level',
     ];
 
     /**
@@ -23,4 +23,25 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function comment()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    // get called from AuthServiceProvider.php
+    public function owns($user, $comment) 
+    {
+        return $user->id == $comment->user_id;  
+    }
+
+    public function isSuperAdmin($user) {
+        return ( $user->level == 'admin' );
+    }
+
+    public function admin($user) 
+    {
+        return $user->level == 'admin';  
+    }
 }

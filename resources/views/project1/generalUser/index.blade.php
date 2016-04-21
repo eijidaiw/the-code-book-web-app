@@ -11,14 +11,14 @@
 		padding-left: 10%;
 		padding-right: 10%;
 	}
-	img.grayscale{ 
+	img.grayscale:hover{ 
     filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);  /* For Webkit browsers */
+    -webkit-filter:  saturate(2); /* For Webkit browsers */
     filter: gray;  /* For IE 6 - 9 */
     -webkit-transition: all .6s ease;  /* Transition for Webkit browsers */
 	}
 
-	img.grayscale:hover{ 
+	img.grayscale{ 
     filter: grayscale(0%);
     -webkit-filter: grayscale(0%);
     filter: none;
@@ -27,6 +27,12 @@
 		font: 20px Montserrat, sans-serif;
 		line-height: 1.8;
 		font-size: 28px;
+		color:#777;
+	}
+	.t{
+		font: 20px Montserrat, sans-serif;
+		line-height: 1.8;
+		font-size: 12px;
 		color:#777;
 	}
 </style>
@@ -53,7 +59,9 @@
 		<img src="{{ URL::asset('img/C5.jpg') }}" alt="vb" class="img-responsive">
 	</div>
 </div>
-<div>
+
+<br><br>
+<div class="con">
 	<table class="table table-condensed">
 		<thead>
 			<tr>
@@ -62,16 +70,36 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td class="col-md-4 col-sm-4 hidden-xs">
+				<td class="col-md-5 col-sm-5 hidden-xs">
 					
 				</td>
-				<td class="col-md-3 col-sm-3 hidden-xs">
+				<td class="col-md-2 col-sm-2 hidden-xs">
 					
 				</td>
-				<td class="col-md-5 col-sm-5 ">
-					<p>The Code Book is a collection of code that are already developed.</p>
-
-					<p>A beginner programmers can view a sample.</p>
+				<td class="col-md-5 col-sm-5 t">
+					<br>
+					<p>The Code Book is a collection of code that are already developed. A beginner programmers can view a sample. The code that we had developed it is java, prthon, c# and vb. </p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<table class="table table-condensed">
+		<thead>
+			<tr>
+				<th class="tcb">Shared Code</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="col-md-5 col-sm-5 hidden-xs">
+					
+				</td>
+				<td class="col-md-2 col-sm-2 hidden-xs">
+					
+				</td>
+				<td class="col-md-5 col-sm-5 t">
+					<br>
+					<p>You can ask questions To find out about the code you have a problem. We have developers who are ready to help you all that trouble.<a href="#">ask!</a></p>
 				</td>
 			</tr>
 		</tbody>

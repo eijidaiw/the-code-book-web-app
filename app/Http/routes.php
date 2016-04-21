@@ -226,18 +226,27 @@ Route::resource('boards','Boards\\BoardsController');
 // 	});
 //     //
 // });
-	Route::get('/',  function() { return redirect('/home'); } );
-	Route::get('/',  function() { return redirect('/home'); } );
+	Route::get('/',  function() { return redirect('/thecodebook'); } );
+	Route::get('/',  function() { return redirect('/thecodebook'); } );
 
 	Route::group(['middleware' => 'web'], function () {
    	Route::auth();
-
-    Route::get('/home', 'HomeController@index');
+   	
     Route::resource('thecodebook/admin','codebook\\ProjectController');
 
     Route::get('thecodebook','codebook\\GeneralUserController@index');
+
     Route::get('thecodebook/java','codebook\\GeneralUserController@java');
+    Route::post('thecodebook/java','codebook\\GeneralUserController@searchjava');
+
     Route::get('thecodebook/python','codebook\\GeneralUserController@python');
+    Route::post('thecodebook/python','codebook\\GeneralUserController@searchpython');
+
     Route::get('thecodebook/c-sharp','codebook\\GeneralUserController@cshrp');
+    Route::post('thecodebook/c-sharp','codebook\\GeneralUserController@searchcshp');
+
     Route::get('thecodebook/vb','codebook\\GeneralUserController@vb');
+    Route::post('thecodebook/vb','codebook\\GeneralUserController@searchvb');
+    
+    Route::get('thecodebook/{thecodebook}','codebook\\GeneralUserController@show');
 });

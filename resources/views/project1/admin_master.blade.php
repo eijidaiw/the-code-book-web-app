@@ -51,7 +51,7 @@
 					<ul class="nav navbar-nav">
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="thecodebook/login">Log out</a></li>
+						<li><a href="{{ url('/logout') }}">Log out</a></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</div>

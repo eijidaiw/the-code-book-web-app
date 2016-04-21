@@ -17,9 +17,9 @@
 	<table class="table table-condensed table-hover">
 		<thead>
 			<tr>
-				<td class="col-md-8"> <span class="glyphicon glyphicon-book"> Title</td>
-				<td class="col-md-2"> <span class="glyphicon glyphicon-tags"> Language</td>
-				<td class="col-md-2"> <span class="glyphicon glyphicon-cog"> Option</td>
+				<td class="col-md-8"> <span class="glyphicon glyphicon-book"></span> Title</td>
+				<td class="col-md-2"> <span class="glyphicon glyphicon-tags"></span> Language</td>
+				<td class="col-md-2"> <span class="glyphicon glyphicon-cog"></span> Option</td>
 			</tr>
 		</thead>
 
@@ -36,7 +36,7 @@
 								<h4 class="modal-title">{{$s->title}}</h4>
 							</div>
 							<div class="panel-body">
-								<pre class="code" ace-mode="ace/mode/javascript" ace-theme="ace/theme/monokai">{{$s->content}}</pre>
+								<pre class="code" ace-mode="ace/mode/java" ace-theme="ace/theme/monokai" ace-gutter="true">{{$s->content}}</pre>
 							</div>
 							<div class="modal-footer">
 								{!! Form::button('Close',['class'=>'btn btn-default','data-dismiss'=>'modal']) !!}

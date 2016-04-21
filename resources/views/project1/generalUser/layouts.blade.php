@@ -19,7 +19,7 @@
 			.other-color{
     			background: white
   			}
-			body {
+			nav {
 		        font: 20px Montserrat, sans-serif;
 		        line-height: 1.8;
 		        color: black;
@@ -89,14 +89,31 @@
 						<li><a  href="{{ url('thecodebook/vb') }}">VB</a></li>
 						<li class="hidden-sm"><a  href="#">Shared Code</a></li>
 						<li class="dropdown">
+							@if (Auth::guest())
         					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 	        					<span class="glyphicon glyphicon-menu-hamburger"></span>
 							</a>
-						        <ul class="dropdown-menu">
-						        	<li class="hidden-md hidden-lg hidden-xs"><a  href="#">Shared Code</a></li>
-						          	<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      								<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
-						        </ul>
+					        <ul class="dropdown-menu">
+					        	<li class="hidden-md hidden-lg hidden-xs"><a  href="#">Shared Code</a></li>
+					          	<li><a href="{{ url('/register') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+  								<li><a href="{{ url('/login') }}"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+					        </ul>
+						    @else
+							@can('showadmin',Auth::user())
+						    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin {{ Auth::user()->name }} <span class="caret"></span></a>
+						    <ul class="dropdown-menu">
+						    	<li><a  href="{{ url('/thecodebook/admin') }}"><span class="glyphicon glyphicon-cog"></span> Management</a></li>
+					        	<li class="hidden-md hidden-lg hidden-xs"><a  href="#">Shared Code</a></li>
+					          	<li><a href="{{ url('/logout') }}"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
+					        </ul>
+					        @else
+					        <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ Auth::user()->name }} <span class="caret"></span></a>
+						    <ul class="dropdown-menu">
+					        	<li class="hidden-md hidden-lg hidden-xs"><a  href="#">Shared Code</a></li>
+					          	<li><a href="{{ url('/logout') }}"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
+					        </ul>
+					        @endcan 
+						    @endif
 						</li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
