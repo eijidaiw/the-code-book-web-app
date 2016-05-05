@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Codedata;
+use App\Bear;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UserTableSeeder::class);
         //$this->call(LibraryTableSeeder::class);
-        $this->call(CodedataTableSeeder::class);
+        $this->call(BearTableSeeder::class);
     }
 }
 
@@ -66,6 +66,14 @@ class LibraryTableSeeder  extends Seeder {
         foreach ($librarys as $s ) {
             library::create($s);     
         } 
+
+    }
+}
+
+class BearTableSeeder  extends Seeder {
+    public function run() {
+        Bear::truncate();
+        factory(Bear::class,20)->create();
 
     }
 }

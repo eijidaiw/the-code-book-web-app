@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use App\Codedata;
+use Auth;
 
 class ProjectController extends Controller
 {
@@ -30,6 +31,8 @@ class ProjectController extends Controller
         $codedatas->setPath('admin');      
         return view('project1.admin')->with('codedatas',$codedatas);
     }
+
+    
 
     /**
      * Show the form for creating a new resource.
@@ -53,7 +56,8 @@ class ProjectController extends Controller
         $codedata->title = Input::get('title');        
         $codedata->content = Input::get('content');
         $codedata->type = Input::get('type');
-        $codedata->evaluation = null;
+        $codedata->evaluation = 5;
+        $codedata->user_id=Auth::user()->id;
         $codedata->save();
         return Redirect::to('thecodebook/admin');
     }

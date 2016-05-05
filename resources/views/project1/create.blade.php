@@ -23,7 +23,7 @@
 				<h3 class="panel-title">Add code</h3>
 		  </div>
 		  <div class="panel-body">
-				<form role="form" action="../admin" method="post">
+				<form role="form" action="../admin" method="POST">
 					<div class="form-group col-md-8">
 						<label >Title:</label>
 						<input type="text" class="form-control" name="title" >
@@ -39,10 +39,11 @@
 					</div>
 					<div class="form-group col-md-12">
 						<label for="pwd">Content:</label>
-						<textarea class="form-control" id="editor2" rows="20" id="comment" name=content></textarea>
+						<textarea class="form-control" id="editor2" rows="20"></textarea>
 					</div>
 					<div align="right" class="col-md-12">
-							<button type="submit" class="btn btn-primary" >add</button>
+							<button type="submit" class="btn btn-primary" onclick="myFunction()">add</button>
+							<input type="hidden" name="content" id="content">
 					</div>
 				</form>
 			</div>

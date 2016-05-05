@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCommentTable extends Migration
+class CreateBearTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,10 @@ class CreateCommentTable extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('bears', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('content');
-            $table->integer('user_id');
-            $table->integer('id_code');
+            $table->string('name');
+            $table->integer('weight')->unsigned();
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateCommentTable extends Migration
      */
     public function down()
     {
-        Schema::drop('comments');
+        Schema::drop('bears');
     }
 }

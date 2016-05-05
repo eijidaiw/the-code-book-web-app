@@ -30,3 +30,10 @@ $factory->define(App\Codedata::class, function (Faker\Generator $faker) {
 
     ];
 });
+
+$factory->define(App\Bear::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->firstname,
+        'weight' => $faker->numberBetween($min = 10, $max = 300),
+    ];
+});
