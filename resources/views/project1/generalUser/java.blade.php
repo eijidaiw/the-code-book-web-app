@@ -50,7 +50,7 @@
 	
 	<div class="con t">
 	<div class="col-md-6 col-xs-12">
-		<h2>Java Code</h2>
+		<h2><i class="fa fa-code" aria-hidden="true"></i>Java Code</h2>
 	</div>
 	<div class="col-md-6 col-xs-12 ">
 	<br>

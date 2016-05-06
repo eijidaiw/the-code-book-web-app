@@ -15,6 +15,7 @@
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
 		<style>
 			.other-color{
     			background: white
@@ -25,6 +26,11 @@
 		        color: black;
 			}
 			p {font-size: 16px;}
+			.i {font-size: 50px;
+				letter-spacing:-0.02cm;
+				font: Arial, Helvetica, sans-serif;
+				padding-top: 0;
+			}
 		  .margin {margin-bottom: 45px;}
 		  .bg-1 { 
 		      background-color: #1abc9c; /* Green */
@@ -74,7 +80,8 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="{{ url('thecodebook') }}">THE CODE BOOK</a>
+					<a class="navbar-brand i" href="{{ url('thecodebook') }}"><span class="fa fa-code " aria-hidden="true"></span></a>
+					<a class="navbar-brand" href="{{ url('thecodebook') }}">THE CODE BOOK </a>
 				</div>
 		
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -87,7 +94,7 @@
 						<li><a  href="{{ url('thecodebook/python') }}">Python</a></li>
 						<li><a  href="{{ url('thecodebook/c-sharp') }}">C#</a></li>
 						<li><a  href="{{ url('thecodebook/vb') }}">VB</a></li>
-						<li class="hidden-sm"><a  href="#">Shared Code</a></li>
+						<li class="hidden-sm"><a  href="{{ url('thecodebook/sharedcode') }}">Shared Code</a></li>
 						<li class="dropdown">
 							@if (Auth::guest())
         					<a class="dropdown-toggle" data-toggle="dropdown" href="#">

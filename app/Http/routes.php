@@ -233,6 +233,7 @@ Route::resource('boards','Boards\\BoardsController');
    	Route::auth();
    	
     Route::resource('thecodebook/admin','codebook\\ProjectController');
+    Route::resource('thecodebook/sharedcode','codebook\\SharecodesController');
     Route::get('thecodebook/update','codebook\\GeneralUserController@index2');
 
     Route::get('thecodebook','codebook\\GeneralUserController@index');
@@ -250,6 +251,9 @@ Route::resource('boards','Boards\\BoardsController');
     Route::post('thecodebook/vb','codebook\\GeneralUserController@searchvb');
     
     Route::get('thecodebook/{thecodebook}','codebook\\GeneralUserController@show');
+
+
+
 });
 
 Route::group(['middleware' => 'web'], function () {

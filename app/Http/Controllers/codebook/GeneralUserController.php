@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use App\Codedata;
+use DB;
 
 class GeneralUserController extends Controller
 {
@@ -29,6 +30,7 @@ class GeneralUserController extends Controller
         $codedatas->setPath('java');      
         return view('project1.generalUser.java')->with('codedatas',$codedatas);
     }
+
     public function python()
     {   
     	$codedatas = Codedata::where('type','python')->paginate(10);       
