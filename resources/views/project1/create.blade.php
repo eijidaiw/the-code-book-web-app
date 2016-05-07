@@ -34,7 +34,7 @@
 							<option value="java">Java</option>
 							<option value="python">Python</option>
 							<option value="c#">C#</option>
-							<option value="vb">VB/option>
+							<option value="vb">VB</option>
 						</select>
 					</div>
 					<div class="form-group col-md-12">

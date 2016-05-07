@@ -37,3 +37,14 @@ $factory->define(App\Bear::class, function (Faker\Generator $faker) {
         'weight' => $faker->numberBetween($min = 10, $max = 300),
     ];
 });
+
+$factory->define(App\Sharecode::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->lexify('Hello ???'),
+        'content' => $faker->text,
+        'type' => $faker->randomElement($array = array ('java','python','c#','vb')) ,
+        'evaluation' => $faker->numberBetween($min = 1, $max = 5) ,
+        'viewcounter' => $faker->numberBetween($min = 20, $max = 1000) ,
+        'user_id' => $faker->randomDigitNotNull,
+    ];
+});

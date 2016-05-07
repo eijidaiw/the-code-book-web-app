@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Input;
+use App\Sharecode;
+use DB;
+
 
 class SharecodesController extends Controller
 {
@@ -16,9 +21,38 @@ class SharecodesController extends Controller
      */
     public function index()
     {
-        return view('project1.sharecode.index');
+        $sharedcode = Sharecode::orderBy('updated_at','DESC')->paginate(10);
+        $check = 'interesting';
+        return view('project1.sharecode.index') ->with('sharedcode',$sharedcode)
+                                                ->with('check',$check);
     }
 
+    public function interesting()
+    {
+        $sharedcode = Sharecode::orderBy('updated_at','DESC')->paginate(10);
+        $check = 'interesting';
+        return view('project1.sharecode.index') ->with('sharedcode',$sharedcode)
+                                                ->with('check',$check);
+    }
+    public function featured()
+    {
+        $sharedcode = Sharecode::orderBy('evaluation','DESC')->paginate(10);
+        $check = 'featured';
+        return view('project1.sharecode.index') ->with('sharedcode',$sharedcode)
+                                                ->with('check',$check);
+    }
+    public function hot()
+    {
+        $sharedcode = Sharecode::orderBy('viewcounter','DESC')->paginate(10);
+        $check = 'hot';
+        return view('project1.sharecode.index') ->with('sharedcode',$sharedcode)
+                                                ->with('check',$check);
+    }
+
+     public function service()
+    {
+        return view('project1.sharecode.index');
+    }
     /**
      * Show the form for creating a new resource.
      *

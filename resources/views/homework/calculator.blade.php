@@ -25,7 +25,7 @@
 				<input type="number" class="form-control" name="n2" value="{{$n2}}">
 			</div>
 			@if($select==="add")
-				<h4>Result={{$n1+$n2}}</h4>
+				<h4>Result={{$n1+$n2}}</h4> 
 			@elseif($select==="minus")
 				<h4>Result={{$n1-$n2}}</h4>
 			@elseif($select==="multyply")

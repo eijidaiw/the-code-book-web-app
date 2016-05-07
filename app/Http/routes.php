@@ -234,8 +234,11 @@ Route::resource('boards','Boards\\BoardsController');
    	
     Route::resource('thecodebook/admin','codebook\\ProjectController');
     Route::resource('thecodebook/sharedcode','codebook\\SharecodesController');
+    Route::get('thecodebook/interesting','codebook\\SharecodesController@interesting');
+    Route::get('thecodebook/featured','codebook\\SharecodesController@featured');
+    Route::get('thecodebook/hot','codebook\\SharecodesController@hot');
     Route::get('thecodebook/update','codebook\\GeneralUserController@index2');
-
+    
     Route::get('thecodebook','codebook\\GeneralUserController@index');
 
     Route::get('thecodebook/java','codebook\\GeneralUserController@java');

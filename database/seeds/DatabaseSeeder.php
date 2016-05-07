@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Bear;
+use App\Sharecode;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UserTableSeeder::class);
         //$this->call(LibraryTableSeeder::class);
-        $this->call(BearTableSeeder::class);
+        $this->call(SharecodeTableSeeder::class);
     }
 }
 
@@ -70,10 +70,10 @@ class LibraryTableSeeder  extends Seeder {
     }
 }
 
-class BearTableSeeder  extends Seeder {
+class SharecodeTableSeeder  extends Seeder {
     public function run() {
-        Bear::truncate();
-        factory(Bear::class,20)->create();
+        Sharecode::truncate();
+        factory(Sharecode::class,50)->create();
 
     }
 }
