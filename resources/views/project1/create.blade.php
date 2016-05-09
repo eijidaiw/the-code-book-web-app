@@ -56,7 +56,7 @@
 			    editor2.setAutoScrollEditorIntoView(true);
 			    editor2.setOption("minLines", 50);
 			    function myFunction() {
-			    	document.getElementById("content").value = editor2.getValue();;
+			    	document.getElementById("content").value = editor2.getValue();
 				}
 			    
 			</script>

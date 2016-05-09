@@ -42,6 +42,7 @@ $factory->define(App\Sharecode::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->lexify('Hello ???'),
         'content' => $faker->text,
+        'description' => $faker->text,
         'type' => $faker->randomElement($array = array ('java','python','c#','vb')) ,
         'evaluation' => $faker->numberBetween($min = 1, $max = 5) ,
         'viewcounter' => $faker->numberBetween($min = 20, $max = 1000) ,

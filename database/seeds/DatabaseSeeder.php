@@ -73,7 +73,7 @@ class LibraryTableSeeder  extends Seeder {
 class SharecodeTableSeeder  extends Seeder {
     public function run() {
         Sharecode::truncate();
-        factory(Sharecode::class,50)->create();
+        factory(Sharecode::class,1)->create();
 
     }
 }

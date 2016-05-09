@@ -31,6 +31,7 @@ class AuthController extends Controller
 
 
     protected $redirectTo = '/thecodebook';
+    protected $redirectAfterLogout = '/thecodebook';
 
     /**
      * Create a new authentication controller instance.

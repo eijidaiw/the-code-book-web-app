@@ -1,5 +1,47 @@
-@extends('layouts.app')
-
+@extends('project1/generalUser/layouts')
+@section('style')
+<style>
+    .con{
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    .t{
+        font: 20px Montserrat, sans-serif;
+        line-height: 1.8;
+        font-size: 16px;
+        color:#777;
+    }
+    a{
+        color:#777;
+    }
+    a:hover {
+      color: #1abc9c !important;
+    }
+    .pagination>li>a,
+    .pagination>li>span {
+        color: #1abc9c;
+    }
+    .pagination>.active>span:hover,.pagination>li.active>span {
+      background: #1abc9c;
+      color: #fff;
+      border: 1px solid #1abc9c;
+    }
+    .right{
+        float:right;
+    }
+    .btn{
+        background: #1abc9c;
+        color:#fff;
+    }
+    .btn:hover{
+        background:#148f77;
+        color:#fff;
+    }
+    input:focus, input[text]:focus, .uneditable-input:focus{
+        box-shadow: 0 1px 1px #3ee4a8 inset, 0 0 8px #3ee4a8 !important;
+    }
+</style>
+@endsection
 @section('content')
 <div class="container">
     <div class="row">
@@ -68,7 +110,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn">
                                     <i class="fa fa-btn fa-user"></i>Register
                                 </button>
                             </div>

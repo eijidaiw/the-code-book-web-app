@@ -189,7 +189,7 @@
 //     //
 // });
 
-Route::resource('boards','Boards\\BoardsController');
+//Route::resource('boards','Boards\\BoardsController');
 
 
 
@@ -226,8 +226,8 @@ Route::resource('boards','Boards\\BoardsController');
 // 	});
 //     //
 // });
-	Route::get('/',  function() { return redirect('/index'); } );
-	Route::get('/',  function() { return redirect('/index'); } );
+	Route::get('/',  function() { return redirect('/thecodebook'); } );
+	Route::get('/',  function() { return redirect('/thecodebook'); } );
 
 	Route::group(['middleware' => 'web'], function () {
    	Route::auth();
@@ -237,8 +237,11 @@ Route::resource('boards','Boards\\BoardsController');
     Route::get('thecodebook/interesting','codebook\\SharecodesController@interesting');
     Route::get('thecodebook/featured','codebook\\SharecodesController@featured');
     Route::get('thecodebook/hot','codebook\\SharecodesController@hot');
+    Route::get('thecodebook/create','codebook\\SharecodesController@create');
     Route::get('thecodebook/update','codebook\\GeneralUserController@index2');
     
+    Route::get('thecodebook/search/{title}','codebook\\SharecodesController@searchsherecode')->where('title', '[A-Za-z]+');
+
     Route::get('thecodebook','codebook\\GeneralUserController@index');
 
     Route::get('thecodebook/java','codebook\\GeneralUserController@java');
@@ -259,8 +262,8 @@ Route::resource('boards','Boards\\BoardsController');
 
 });
 
-Route::group(['middleware' => 'web'], function () {
-    Route::auth();
-    Route::resource('index','Bear\\BearsController');
-    Route::post('search','bear\\BearsController@search');
-});
+// Route::group(['middleware' => 'web'], function () {
+//     Route::auth();
+//     Route::resource('index','Bear\\BearsController');
+//     Route::post('search','bear\\BearsController@search');
+// });

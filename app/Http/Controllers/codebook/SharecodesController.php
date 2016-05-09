@@ -9,8 +9,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use App\Sharecode;
+use App\User;
 use DB;
-
+use Auth;
 
 class SharecodesController extends Controller
 {
@@ -60,7 +61,8 @@ class SharecodesController extends Controller
      */
     public function create()
     {
-        //
+        $check = 'create';
+        return view('project1.sharecode.index')->with('check',$check);
     }
 
     /**
@@ -71,7 +73,19 @@ class SharecodesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sharedcode = new Sharecode;
+        $sharedcode->title = Input::get('title');    
+        $sharedcode->description = Input::get('description');    
+        $sharedcode->content = Input::get('content');
+        $sharedcode->type = Input::get('type');
+        $sharedcode->theme = Input::get('theme');
+        $sharedcode->evaluation = 0;
+        $sharedcode->user_id=Auth::user()->id;
+        $sharedcode->viewcounter = 0;
+        $sharedcode->save();
+
+        $new = Sharecode::orderBy('updated_at','DESC')->first();
+        return Redirect::to('thecodebook/sharedcode/'.$new->id);
     }
 
     /**
@@ -82,7 +96,11 @@ class SharecodesController extends Controller
      */
     public function show($id)
     {
-        //
+        $sharedcode = Sharecode::find($id);
+        $name=User::where('id',$sharedcode->user_id)->get();   
+        // return $name;
+        return view('project1.sharecode.show')  ->with('sharedcode',$sharedcode)
+                                                ->with('name',$name);
     }
 
     /**
@@ -117,5 +135,11 @@ class SharecodesController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function searchsherecode($title)
+    {    
+        $sharecodes = Sharecode::where('title','like','%'.$title.'%')->get();         
+        return $sharecodes;
     }
 }

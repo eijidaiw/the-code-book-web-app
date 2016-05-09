@@ -61,7 +61,9 @@
     color: #bbb;
     border: 1px solid transparent;
   }
-
+  form>div>label{
+    color: #1abc9c;
+  }
   label:before {
     font-family: fontawesome;
     font-weight: normal;
@@ -69,7 +71,7 @@
   }
 
   label:hover {
-    color: #888;
+    color: #1abc9c;
     cursor: pointer;
   }
 
@@ -82,7 +84,8 @@
 
   #tab1:checked ~ #content1,
   #tab2:checked ~ #content2,
-  #tab3:checked ~ #content3{
+  #tab3:checked ~ #content3,
+  #tab4:checked ~ #content4{
     display: block;
   }
 
@@ -137,6 +140,30 @@
   a:hover {
     color: #148f77 !important;
   }
+  form>.btn{
+    background: #1abc9c;
+    color:#fff;
+  }
+  form>.btn:hover{
+    background:#148f77;
+    color:#fff;
+  }
+  .right{
+    float:right;
+  }
+
+</style>
+<style type="text/css" media="screen">
+
+  .ace_editor {
+    border: 1px solid lightgray;
+    height: 500px;
+    width: 100%;
+  }
+  .scrollmargin {
+    height: 80px;
+        text-align: center;
+  }
 </style>
 @endsection
 
@@ -162,13 +189,70 @@
     <input id="tab3" type="radio" name="tabs" onclick="hot()">
   @endif
     <label for="tab3">Hot</label>
+  @if (!Auth::guest())
+  @if($check==="create") 
+    <input id="tab4" type="radio" name="tabs" onclick="create()" checked >
+  @else
+    <input id="tab4" type="radio" name="tabs" onclick="create()" >
+  @endif
+    <label for="tab4">Share Code</label>
+  @endif
   @if($check==='interesting')
   <section id="content1">
   @elseif($check==='featured')
   <section id="content2">
-  @else
+  @elseif($check==='hot')
   <section id="content3">
   @endif
+  @if($check==='create')
+  <section id="content4">
+    <form action="./sharedcode" method="POST" role="form">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" name="title">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" rows="5" id="description" name="description" ></textarea>
+      </div>
+      <div class="form-group">
+      <label for="mode">Language</label>
+      <select id="mode" class="form-control" size="1" onchange="report(this.value)" name="theme">
+        <option value="java">Java</option>
+        <option value="c_cpp">C</option>
+        <option value="c_cpp">C and C++</option>
+        <option value="csharp">C#</option>
+        <option value="python">Python</option>
+        <option value="php">PHP</option>
+        <option value="javascript">JavaScript</option>
+        <option value="html_ruby">HTML (Ruby)</option>
+        <option value="perl">Perl</option>
+        <option value="vbscript">Visual Basic .NET</option>
+        <option value="objectivec">Objective-C</option>
+        <option value="swift">Swift</option>
+        <option value="r">R</option>
+        <option value="groovy">Groovy</option>
+        <option value="matlab">MATLAB</option>
+        <option value="sql">SQL</option>
+        <option value="sqlserver">SQLServer</option>
+        <option value="d">D</option>
+        <option value="css">CSS</option>
+        <option value="html">HTML</option>
+        <option value="json">JSON</option>
+        <option value="less">LESS</option>
+        <option value="xml">XML</option>
+        </select>
+        </div>
+      <div class="form-group">
+        <label for="content">Code</label>
+        <textarea class="form-control" id="editor2" rows="20"></textarea>
+      </div>
+      <button type="submit" class="btn right" onclick="myFunction()">Share</button>
+      <input type="hidden" name="content" id="content">
+      <input type="hidden" name="type" id="type">
+    </form>
+  </section> 
+  @else
     <table class="table table-condensed" >
       <tbody>
         @foreach ($sharedcode as $s)
@@ -190,11 +274,11 @@
             </div>
             <td class="col-md-6">
               <div class="row">
-                <a href="#"><h3>{{$s->title}}}</h3></a>
+                <a href="sharedcode/{{$s->id}}"><h3>{{$s->title}}</h3></a>
               </div>
               <div class="row">
                 <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                  tag
+                  {{$s->type}}
                 </button>
               </div>
             </td>
@@ -224,8 +308,10 @@
         {!! $sharedcode->render() !!}
       </div>
     </section> 
+    @endif
   </main>
   <script>
+
 function int() {
    window.location.href="{{ url('thecodebook/interesting') }}";
 }
@@ -235,5 +321,29 @@ function fea() {
 function hot() {
    window.location.href="{{ url('thecodebook/hot') }}";
 }
+function create() {
+   window.location.href="{{ url('thecodebook/create') }}";
+}
+</script>
+<script src="{{ URL::asset('src/ace.js') }}"></script>
+      <script>
+          var editor2 = ace.edit("editor2");
+          editor2.setTheme("ace/theme/monokai");
+          editor2.session.setMode("ace/mode/java");
+          editor2.setAutoScrollEditorIntoView(true);
+          editor2.setOption("minLines", 50);
+          function myFunction() {
+            document.getElementById("content").value = editor2.getValue();
+            document.getElementById("type").value = $("#mode option:selected").text();
+        }
+
+          function report(period) {
+            editor2.session.setMode("ace/mode/"+period);
+          }
+      </script>
+
+<script src="{{ URL::asset('show_own_source.js') }}"></script>
+<script>
+  
 </script>
   @endsection
