@@ -234,12 +234,13 @@
    	
     Route::resource('thecodebook/admin','codebook\\ProjectController');
     Route::resource('thecodebook/sharedcode','codebook\\SharecodesController');
+    Route::resource('thecodebook/comment','codebook\\CommentController');
     Route::get('thecodebook/interesting','codebook\\SharecodesController@interesting');
     Route::get('thecodebook/featured','codebook\\SharecodesController@featured');
     Route::get('thecodebook/hot','codebook\\SharecodesController@hot');
     Route::get('thecodebook/create','codebook\\SharecodesController@create');
     Route::get('thecodebook/update','codebook\\GeneralUserController@index2');
-    
+    Route::post('thecodebook/search','codebook\\SharecodesController@searchshare');
     Route::get('thecodebook/search/{title}','codebook\\SharecodesController@searchsherecode')->where('title', '[A-Za-z]+');
 
     Route::get('thecodebook','codebook\\GeneralUserController@index');

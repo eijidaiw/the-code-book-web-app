@@ -27,6 +27,7 @@
     font-weight: 400;
     text-align: center;
     color:#1abc9c;
+    padding-bottom: 10px;
   }
 
   p {
@@ -148,10 +149,13 @@
     background:#148f77;
     color:#fff;
   }
-  .right{
-    float:right;
+  .position{
+    float:center;
   }
-
+  .p{
+    padding-right:400px;
+    padding-left: 400px;
+  }
 </style>
 <style type="text/css" media="screen">
 
@@ -164,11 +168,31 @@
     height: 80px;
         text-align: center;
   }
+   form>div>.btn{
+    background: #1abc9c;
+  color:#fff;
+  border:0px;
+  }
+  form>div>.btn:hover{
+    background:#148f77;
+    color:#fff;
+    border:0px;
+  }
 </style>
 @endsection
 
 @section('content')
 <h1><i class="fa fa-share-alt-square" aria-hidden="true"></i>The Shared Code</h1>
+
+<form method="POST" role="form" class="position container p" action="./search">
+      <div class="form-group col-md-8 ">
+        <input type="text" class="form-control position" name="search" placeholder="Search">
+      </div>
+      <div class="col-md-4 ">
+        <button type="submit" class="btn position">Search</button>
+      </div>
+      
+</form>
 
 <main>
   @if($check==="interesting")
@@ -260,7 +284,7 @@
           <td class="col-md-3">
             <div class="review-block-rate">
               {{--*/ $var = 5 /*--}}
-              @for ($i = 0; $i < $s->evaluation; $i++)
+              @for ($i = 0.9; $i < $s->evaluation; $i++)
               <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
                 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
               </button>
@@ -293,7 +317,7 @@
               </div>
               <div class="col-md-6">
                 <div class="row">
-                  <h2>200</h2>
+                  <h2>{{$s->countercomment}}</h2>
                 </div>
                 <div class="row">
                   <p>comment</p>

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use App\Sharecode;
 use App\User;
+use App\Comment;
 use DB;
 use Auth;
 
@@ -97,10 +98,16 @@ class SharecodesController extends Controller
     public function show($id)
     {
         $sharedcode = Sharecode::find($id);
-        $name=User::where('id',$sharedcode->user_id)->get();   
+        $name=User::where('id',$sharedcode->user_id)->get();  
+        $comments = Comment::join('users', 'comments.user_id', '=', 'users.id')->where('id_code',$id)->orderBy('comments.updated_at','DESC')->get();
+
         // return $name;
-        return view('project1.sharecode.show')  ->with('sharedcode',$sharedcode)
-                                                ->with('name',$name);
+         return view('project1.sharecode.show',compact("comments","sharedcode","name")) ;
+        // // ->with('sharedcode',$sharedcode)
+        // //                                         // ->with('comments',$comments)
+        // //                                         ->with('name',$name)
+        //                                         ;
+         // var_dump($sharedcode);
     }
 
     /**
@@ -141,5 +148,13 @@ class SharecodesController extends Controller
     {    
         $sharecodes = Sharecode::where('title','like','%'.$title.'%')->get();         
         return $sharecodes;
+    }
+    public function searchshare()
+    {     
+        $word=Input::get('search');
+
+        $sharecodes = Sharecode::where([['type','java'],['title','like','%'.$word.'%'],])->paginate(10);       
+        $sharecodes->setPath('search');      
+        return view('project1.sharecode.search')->with('sharecodes',$sharecodes);
     }
 }
