@@ -97,7 +97,10 @@ class SharecodesController extends Controller
      */
     public function show($id)
     {
+
         $sharedcode = Sharecode::find($id);
+        $sharedcode->viewcounter = $sharedcode->viewcounter +1 ;
+        $sharedcode->save();
         $name=User::where('id',$sharedcode->user_id)->get();  
         $comments = User::join('comments', 'comments.user_id', '=', 'users.id')->where('id_code',$id)->orderBy('comments.updated_at','DESC')->get();
 
