@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use App\Codedata;
 use Auth;
+use App\Sharecode;
+use App\Comment;
 
 class ProjectController extends Controller
 {
@@ -32,6 +34,15 @@ class ProjectController extends Controller
         return view('project1.admin')->with('codedatas',$codedatas);
     }
 
+    public function report()
+    {   
+        $sharecode = Sharecode::where('report','>',0)->paginate(10);
+        $sharecode->setPath('reportsharedcode'); 
+        $comments = Sharecode::join('comments','comments.id_code','=','sharecodes.id')->where('comments.report','>',0)->paginate(10);
+        $comments->setPath('reportcomment');
+        return view('project1.report')  ->with('sharecode',$sharecode)
+                                        ->with('comments',$comments);
+    }
     
 
     /**

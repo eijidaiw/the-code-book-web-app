@@ -3,6 +3,7 @@
 @section('title','THE CODE BOOK')
 
 @section('style')
+<!-- <link rel="stylesheet" href="{{ URL::asset('agency.css') }}" /> -->
 <style>
 	.box{
 		padding: 4px;
@@ -35,6 +36,14 @@
 		font-size: 12px;
 		color:#777;
 	}
+.team-member {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.team-member img {
+    margin: 0 auto;
+    border: 7px solid white;
+}
 </style>
 @endsection
 
@@ -78,7 +87,7 @@
 				</td>
 				<td class="col-md-5 col-sm-5 t">
 					<br>
-					<p>The Code Book is a collection of code that are already developed. A beginner programmers can view a sample. The code that we had developed it is java, prthon, c# and vb. </p>
+					<p>The Code Book is a collection of code that are already developed. A beginner programmers can view a sample. The code that we had developed it is JAVA, PYTHON, C# and VB. </p>
 				</td>
 			</tr>
 		</tbody>
@@ -105,6 +114,67 @@
 		</tbody>
 	</table>
 </div>
-	
+	<section id="team" class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Our The Code book Team</h2>
+                    <h3 class="section-subheading text-muted">We are ready to take care of you.</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="{{ URL::asset('img/kwang.jpg') }}" class="img-responsive img-circle" alt="">
+                        <h4 class="h4">Kwanrudee Klebkaew</h4>
+                        <p class="text-muted">Designer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="https://www.instagram.com/kwangkuku_k/"><i class="fa fa-instagram"></i></a>
+                            </li>
+                            <li><a href="https://www.facebook.com/kwangkuku?fref=ufi"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="https://github.com/kwangkuku"><i class="fa fa-github"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="{{ URL::asset('img/eiji.jpg') }}" class="img-responsive img-circle" alt="">
+                        <h4 class="h4">Saknarong Pomwong</h4>
+                        <p class="text-muted">Developerr</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="https://www.instagram.com/eijid/"><i class="fa fa-instagram"></i></a>
+                            </li>
+                            <li><a href="https://www.facebook.com/Eiji.daiw"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="https://github.com/eijidaiw"><i class="fa fa-github"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="{{ URL::asset('img/pop.jpg') }}" class="img-responsive img-circle" alt="">
+                        <h4 class="h4">Napawan Jindamanee</h4>
+                        <p class="text-muted">Project Manager</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="https://www.instagram.com/april.427/"><i class="fa fa-instagram"></i></a>
+                            </li>
+                            <li><a href="https://www.facebook.com/napawan.jindamanee"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="https://github.com/napawan410"><i class="fa fa-github"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                   <!--  <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p> -->
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection
 

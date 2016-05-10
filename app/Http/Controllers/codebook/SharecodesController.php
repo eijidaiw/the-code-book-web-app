@@ -99,7 +99,7 @@ class SharecodesController extends Controller
     {
         $sharedcode = Sharecode::find($id);
         $name=User::where('id',$sharedcode->user_id)->get();  
-        $comments = Comment::join('users', 'comments.user_id', '=', 'users.id')->where('id_code',$id)->orderBy('comments.updated_at','DESC')->get();
+        $comments = User::join('comments', 'comments.user_id', '=', 'users.id')->where('id_code',$id)->orderBy('comments.updated_at','DESC')->get();
 
         // return $name;
          return view('project1.sharecode.show',compact("comments","sharedcode","name")) ;
@@ -118,7 +118,11 @@ class SharecodesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $sharecodes = Sharecode::find($id);
+        $sharecodes->report = $sharecodes->report + 1;
+        $sharecodes->save();
+        return Redirect::to('thecodebook/sharedcode/'.$id);
+
     }
 
     /**
@@ -141,7 +145,10 @@ class SharecodesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $sharecodes = Sharecode::find($id);
+        $sharecodes->delete();
+        return Redirect::to('thecodebook/report');
     }
 
     public function searchsherecode($title)
@@ -153,8 +160,9 @@ class SharecodesController extends Controller
     {     
         $word=Input::get('search');
 
-        $sharecodes = Sharecode::where([['type','java'],['title','like','%'.$word.'%'],])->paginate(10);       
+        $sharecodes = Sharecode::where('title','like','%'.$word.'%')->paginate(10);       
         $sharecodes->setPath('search');      
-        return view('project1.sharecode.search')->with('sharecodes',$sharecodes);
+        return view('project1.sharecode.search')->with('sharecodes',$sharecodes)
+                                                ->with('word',$word);
     }
 }

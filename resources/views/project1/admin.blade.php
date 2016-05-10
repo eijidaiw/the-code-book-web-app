@@ -18,7 +18,7 @@
 		<thead>
 			<tr>
 				<td class="col-md-8"> <span class="glyphicon glyphicon-book"></span> Title</td>
-				<td class="col-md-2"> <span class="glyphicon glyphicon-tags"></span> Language</td>
+				<td class="col-md-2"> <i class="fa fa-code" aria-hidden="true"></i>Language</td>
 				<td class="col-md-2"> <span class="glyphicon glyphicon-cog"></span> Option</td>
 			</tr>
 		</thead>

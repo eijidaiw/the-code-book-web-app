@@ -242,6 +242,7 @@
     Route::get('thecodebook/update','codebook\\GeneralUserController@index2');
     Route::post('thecodebook/search','codebook\\SharecodesController@searchshare');
     Route::get('thecodebook/search/{title}','codebook\\SharecodesController@searchsherecode')->where('title', '[A-Za-z]+');
+    Route::get('thecodebook/report','codebook\\ProjectController@report');
 
     Route::get('thecodebook','codebook\\GeneralUserController@index');
 

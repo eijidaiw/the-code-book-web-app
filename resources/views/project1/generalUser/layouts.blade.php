@@ -59,12 +59,75 @@
 		  .navbar-nav  li a:hover {
 		      color: #1abc9c !important;
 		  }
-		  footer {
-    		position:absolute;
-   			bottom:0;
-   			width:100%;
-   			height:60px;
-		}
+		   .navbar-nav  li a{
+		      color: #777 !important;
+		  }
+	section{
+		padding-bottom: 200px
+	}
+		  section h2.section-heading {
+    font-size: 40px;
+    margin-top: 150px;
+    margin-bottom: 15px;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+section h3.section-subheading {
+    font-size: 16px;
+    font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: none;
+    font-style: italic;
+    font-weight: 400;
+    margin-bottom: 75px;
+}
+.team-member {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.h4{
+	    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.text-muted {
+    color: #777777;
+    font-size: 14px;
+    line-height: 1.75;
+        font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+ul.social-buttons li a {
+    display: block;
+    background-color: #222222;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    font-size: 20px;
+    line-height: 40px;
+    color: white;
+    outline: none;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+ul.social-buttons li a:hover {
+    background-color: #1abc9c;
+}
+footer {
+    padding: 25px 0;
+    text-align: center;
+}
+ul.social-buttons {
+    margin-bottom: 0;
+}
+footer span.copyright {
+    line-height: 40px;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    text-transform: none;
+        color: #333;
+        font-size: 14px;
+}
 		</style>
 
 	@yield('style')
@@ -130,11 +193,34 @@
 		<div class="container">
 			@yield('content')
 		</div>
-		<div class="footer container other-color">
-			<div class="container">
-				<p class="navbar-brand">By Eiji</p>
-			</div>
-		</div>
+		<footer>
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-md-4">
+	                    <span class="copyright">Copyright &copy; Your Website 2016</span>
+	                </div>
+	                <div class="col-md-4">
+	                    <ul class="list-inline social-buttons">
+	                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+	                        </li>
+	                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+	                        </li>
+	                        <li><a href="#"><i class="fa fa-github"></i></a>
+	                        </li>
+	                    </ul>
+	                </div>
+	                <div class="col-md-4">
+	                	<p>THE CODE BOOK</p>
+	                    <!-- ul class="list-inline quicklinks">
+	                        <li><a href="#">Privacy Policy</a>
+	                        </li>
+	                        <li><a href="#">Terms of Use</a>
+	                        </li>
+	                    </ul> -->
+	                </div>
+	            </div>
+	        </div>
+	    </footer>
 		<script src="//code.jquery.com/jquery.js"></script>
 		<!-- Bootstrap JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>

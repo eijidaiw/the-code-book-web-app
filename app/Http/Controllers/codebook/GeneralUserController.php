@@ -62,7 +62,7 @@ class GeneralUserController extends Controller
 
     	$codedatas = Codedata::where([['type','java'],['title','like','%'.$word.'%'],])->paginate(10);       
         $codedatas->setPath('java');      
-        return view('project1.generalUser.java')->with('codedatas',$codedatas);;
+        return view('project1.generalUser.java')->with('codedatas',$codedatas);
     }
 
     public function searchpython()

@@ -15,6 +15,7 @@
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
 		<style>
 		#panel1{
 			margin: 3%;
@@ -49,6 +50,9 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav">
+						<li><a href="{{ url('/thecodebook') }}">Code Book</a></li>
+						<li><a href="{{ url('/thecodebook/admin') }}">List Codes</a></li>
+						<li><a href="{{ url('/thecodebook/report') }}">Report</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="{{ url('/logout') }}">Log out</a></li>
