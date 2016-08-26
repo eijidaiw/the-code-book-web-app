@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBearTable extends Migration
+class CreateTagTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,8 @@ class CreateBearTable extends Migration
      */
     public function up()
     {
-        Schema::create('bears', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->integer('weight')->unsigned();
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ class CreateBearTable extends Migration
      */
     public function down()
     {
-        Schema::drop('bears');
+        Schema::drop('tags');
     }
 }

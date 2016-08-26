@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Bear;
+namespace App\Http\Controllers\codebook;
 
 use Illuminate\Http\Request;
 
@@ -8,28 +8,20 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
-use App\Bear;
-use Illuminate\Support\Facades\Validator;
-
-class BearsController extends Controller
+use App\Comment;
+use Auth;
+use Validator;
+use App\Sharecode;
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-     public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-
     public function index()
     {
-        $bears = Bear::orderBy('weight','DESC')->paginate(10);       
-        $bears->setPath('index');      
-        return view('bear.index')->with('bears',$bears);
+        //
     }
 
     /**
@@ -39,7 +31,7 @@ class BearsController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -50,26 +42,37 @@ class BearsController extends Controller
      */
     public function store(Request $request)
     {
-        
-
-         $rules = array(
-             'name' => array('required'), 
-             'weight' => array('required')
+        $id = Input::get('id');
+        $rules = array(
+             'rating' => array('required')
              );
          $message = array(
-             'name.required' => 'กรุณาป้อนชื่อด้วยครับ',
-             'weight.required' => 'กรุณาป้อนน้ำหนักด้วยครับ'
+             'rating.required' => 'Please Rate'
              );
          $validator = Validator::make(Input::all(), $rules,$message);
          if($validator->passes()) {
-            $bear = new Bear;
-            $bear->name = Input::get('name');        
-            $bear->weight = Input::get('weight');
-            $bear->save();
-            return Redirect::to('index');
+            $comment = new Comment;
+            $comment->content = Input::get('content');    
+            $comment->evaluation = Input::get('rating');    
+            $comment->user_id = Auth::user()->id;
+            $comment->id_code = Input::get('id');
+            $comment->save();
+            $id = Input::get('id');
+            $sharedcode = Sharecode::find($id);
+            $com = Comment::where('id_code',$id)->get();
+            $sum = 0;
+            foreach ($com as $key) {
+                $sum = $sum + $key->evaluation;
+            }
+            $eva = $sum /$com->count();
+            $sharedcode->evaluation = $eva;
+            $sharedcode->countercomment = $com->count();
+            $sharedcode->save();
+            return Redirect::to('thecodebook/sharedcode/'.$id);
          }else{
-             return Redirect::to('index')->withErrors($validator->messages());
+           return Redirect::to('thecodebook/sharedcode/'.$id)->withErrors($validator->messages());
          }
+        
     }
 
     /**
@@ -91,8 +94,11 @@ class BearsController extends Controller
      */
     public function edit($id)
     {
-        $bear = Bear::find($id);       
-        return view('bear.edit')->with('bear',$bear);
+        $comment = Comment::find($id);
+        $comment->report = $comment->report + 1;
+        $comment->save();
+        $num = $comment->id_code;
+        return Redirect::to('thecodebook/sharedcode/'.$num);
     }
 
     /**
@@ -104,11 +110,7 @@ class BearsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $bear = Bear::find($id);
-        $bear->name = Input::get('name');        
-        $bear->weight = Input::get('weight');
-        $bear->save();
-        return Redirect::to('index');
+        //
     }
 
     /**
@@ -119,16 +121,9 @@ class BearsController extends Controller
      */
     public function destroy($id)
     {
-        $bear = Bear::find($id);
-        $bear->delete();
-        return Redirect::to('index');
-    }
-    public function search()
-    {     
-        $word=Input::get('search');
-
-        $bears = Bear::where('name','LIKE','%'.$word.'%')->paginate(10);       
-        $bears->setPath('index/search');      
-        return view('bear.index')->with('bears',$bears);
+         
+        $comment = Comment::find($id);
+        $comment->delete();
+        return Redirect::to('thecodebook/report');
     }
 }

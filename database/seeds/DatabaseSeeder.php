@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Sharecode;
+use App\Book;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UserTableSeeder::class);
         //$this->call(LibraryTableSeeder::class);
-        $this->call(SharecodeTableSeeder::class);
+        $this->call(BookTableSeeder::class);
     }
 }
 
@@ -41,6 +41,7 @@ class DatabaseSeeder extends Seeder
 
 //     }
 // }
+
 
 class LibraryTableSeeder  extends Seeder {
     public function run() {

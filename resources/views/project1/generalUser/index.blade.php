@@ -108,7 +108,7 @@
 				</td>
 				<td class="col-md-5 col-sm-5 t">
 					<br>
-					<p>You can ask questions To find out about the code you have a problem. We have developers who are ready to help you all that trouble.<a href="#">ask!</a></p>
+					<p>You can ask questions To find out about the code you have a problem. We have developers who are ready to help you all that trouble.<a href="{{ url('thecodebook/sharedcode') }}">Share!</a></p>
 				</td>
 			</tr>
 		</tbody>
@@ -127,7 +127,7 @@
                     <div class="team-member">
                         <img src="{{ URL::asset('img/kwang.jpg') }}" class="img-responsive img-circle" alt="">
                         <h4 class="h4">Kwanrudee Klebkaew</h4>
-                        <p class="text-muted">Designer</p>
+                        <p class="text-muted">Designer/Programer</p>
                         <ul class="list-inline social-buttons">
                             <li><a href="https://www.instagram.com/kwangkuku_k/"><i class="fa fa-instagram"></i></a>
                             </li>
@@ -142,7 +142,7 @@
                     <div class="team-member">
                         <img src="{{ URL::asset('img/eiji.jpg') }}" class="img-responsive img-circle" alt="">
                         <h4 class="h4">Saknarong Pomwong</h4>
-                        <p class="text-muted">Developerr</p>
+                        <p class="text-muted">Developer</p>
                         <ul class="list-inline social-buttons">
                             <li><a href="https://www.instagram.com/eijid/"><i class="fa fa-instagram"></i></a>
                             </li>
