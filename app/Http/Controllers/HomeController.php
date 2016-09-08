@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use View;
 
 class HomeController extends Controller
 {
@@ -25,5 +26,25 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function testAjax()
+    {
+        
+        
+        return view('testAjax');
+    }
+
+    public function getAjax()
+    {
+        $data = [
+            ['id' => '1',
+                        'name' => 'test'],
+            ['id' => '2',
+            'name' => 'test2']
+        ];
+        //view('ajaxView',compact('arr'));
+        
+        return ['html' => View::make('ajaxView',['data'=>$data])->render()];
     }
 }

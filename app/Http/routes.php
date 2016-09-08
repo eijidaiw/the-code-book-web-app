@@ -39,6 +39,8 @@
 */
 	Route::get('/',  function() { return redirect('/thecodebook'); } );
 
+  
+
 	Route::group(['middleware' => 'web'], function () {
    	Route::auth();
    	
@@ -69,7 +71,9 @@
     Route::post('thecodebook/vb','codebook\\GeneralUserController@searchvb');
     
     Route::get('thecodebook/{thecodebook}','codebook\\GeneralUserController@show');
-
+    
+    Route::get('thecodebooktestAjax','HomeController@testAjax');
+    Route::get('thecodebookgetAjax','HomeController@getAjax');
 
 
 });
