@@ -32,7 +32,6 @@
 					  url: "http://localhost:8080/laravel/public/thecodebookgetAjax",
 					})
 					 .done(function( data ) {
-					    console.log(data.html);
 					    $('#'+type).html(data.html);
 					});
 			});
