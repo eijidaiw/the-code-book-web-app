@@ -28,27 +28,13 @@
 		<script src="//code.jquery.com/jquery.js"></script>
 		<script>
 			$( document ).ready(function() {
-
-				$('.nav-tabs li').on('click',function(){
-					var tab = $(this);
-					
-					var type = tab.data('type');
-					console.log(type);
 					$.ajax({
 					  url: "http://localhost:8080/laravel/public/thecodebookgetAjax",
-					  
 					})
 					 .done(function( data ) {
 					    console.log(data.html);
 					    $('#'+type).html(data.html);
 					});
-
-				})
-
-				$('#ajaxBtn').on('click',function(){
-					
-				});
-			    
 			});
 		</script>
 	</body>
